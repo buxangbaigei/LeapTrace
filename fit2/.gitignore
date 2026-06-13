@@ -1,0 +1,19 @@
+# 依赖
+node_modules/
+
+# 编译产物
+dist/
+unpackage/
+
+# IDE配置
+.hbuilderx/
+.idea/
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+.env.local

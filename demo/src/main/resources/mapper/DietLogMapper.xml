@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.DietLogMapper">
+
+    <insert id="insert" parameterType="com.example.demo.entity.DietLog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO h_diet_log (user_id, food_name, calories, protein, fat, carbs, gram, meal_type, record_time)
+        VALUES (#{userId}, #{foodName}, #{calories}, #{protein}, #{fat}, #{carbs}, #{gram}, #{mealType}, #{recordTime})
+    </insert>
+
+    <delete id="deleteById">
+        DELETE FROM h_diet_log WHERE id = #{id}
+    </delete>
+
+    <select id="selectById" resultType="com.example.demo.entity.DietLog">
+        SELECT * FROM h_diet_log WHERE id = #{id}
+    </select>
+
+    <select id="selectByUserId" resultType="com.example.demo.entity.DietLog">
+        SELECT * FROM h_diet_log WHERE user_id = #{userId} ORDER BY record_time DESC
+    </select>
+
+    <select id="selectByDateRange" resultType="com.example.demo.entity.DietLog">
+        SELECT * FROM h_diet_log
+        WHERE user_id = #{userId}
+        AND DATE(record_time) BETWEEN #{startDate} AND #{endDate}
+        ORDER BY record_time DESC
+    </select>
+</mapper>

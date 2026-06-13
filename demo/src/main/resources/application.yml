@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: demo
+  datasource:
+
+    url: jdbc:mysql://127.0.0.1:3306/health_ai_app?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&useUnicode=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true           # 启用文件上传
+      max-file-size: 10MB     # 单个文件最大 10MB
+      max-request-size: 10MB  # 整个请求最大 10MB
+
+    web:
+    resources:
+      add-mappings: true
+  mvc:
+    dispatch-options-request: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring.jackson:
+  property-naming-strategy: SNAKE_CASE
+
+dashscope:
+  model: qwen-vl-plus
+  api-key:
+

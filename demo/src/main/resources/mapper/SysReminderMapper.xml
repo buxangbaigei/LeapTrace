@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SysReminderMapper">
+
+    <insert id="insert" parameterType="com.example.demo.entity.SysReminder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_reminder (user_id, type, time, is_enabled, created_at)
+        VALUES (#{userId}, #{type}, #{time}, #{isEnabled}, #{createdAt})
+    </insert>
+
+    <update id="update" parameterType="com.example.demo.entity.SysReminder">
+        UPDATE sys_reminder
+        SET time = #{time},
+            is_enabled = #{isEnabled}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM sys_reminder WHERE id = #{id}
+    </delete>
+
+    <select id="selectById" resultType="com.example.demo.entity.SysReminder">
+        SELECT * FROM sys_reminder WHERE id = #{id}
+    </select>
+
+    <select id="selectByUserId" resultType="com.example.demo.entity.SysReminder">
+        SELECT * FROM sys_reminder WHERE user_id = #{userId} ORDER BY type
+    </select>
+
+    <select id="selectByUserIdAndType" resultType="com.example.demo.entity.SysReminder">
+        SELECT * FROM sys_reminder WHERE user_id = #{userId} AND type = #{type}
+    </select>
+</mapper>

@@ -1,0 +1,137 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom"
+			}
+		}, 
+		{
+		            "path": "pages/home/home",
+		            "style": {
+		                // "navigationBarTitleText": "首页",
+		                "enablePullDownRefresh": false,
+		                "disableScroll": false,
+						"navigationStyle": "custom"
+		            }
+		        },
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}
+	    ,{
+            "path" : "pages/userEdit/userEdit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+				
+            }
+            
+        }
+        ,{
+            "path" : "pages/ai-chat/ai-chat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/diet/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        } ,{
+            "path" : "pages/home/report",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+			"path": "pages/me/reminders",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/diet/scan-analyze",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}
+    ],
+	"easycom": {
+		// 注意一定要放在custom里，否则无效，https://ask.dcloud.net.cn/question/131175
+		"custom": {
+			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+		}
+	},
+	"tabBar": {
+		"color": "#94A3B8",
+		"selectedColor": "#10B981",
+		"borderStyle": "white",
+		"backgroundColor": "#FFFFFF",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "监测",
+				"iconPath": "static/tabbar/monitor.png",
+				"selectedIconPath": "static/tabbar/monitor-active.png"
+			},
+			{
+			    "pagePath": "pages/diet/index",
+			    "text": "饮食识别",
+			    "iconPath": "static/tabbar/camera.png",
+			    "selectedIconPath": "static/tabbar/camera-active.png"
+			},
+			{
+			    "pagePath": "pages/ai-chat/ai-chat",
+			    "text": "AI助手",
+			    "iconPath": "static/tabbar/ai.png",
+			    "selectedIconPath": "static/tabbar/ai-active.png"
+			},
+			{
+			    "pagePath": "pages/me/me",
+			    "text": "我的",
+			    "iconPath": "static/tabbar/user.png",
+			    "selectedIconPath": "static/tabbar/user-active.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "AI健康管理",
+		"navigationBarBackgroundColor": "#F8FAFC",
+		"backgroundColor": "#F8FAFC",
+		"backgroundColorBottom": "#F8FAFC",
+		"backgroundColorTop": "#F8FAFC"
+	}
+}

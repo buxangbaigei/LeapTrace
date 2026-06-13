@@ -1,0 +1,11 @@
+# 前端
+fit2/node_modules/
+fit2/dist/
+fit2/unpackage/
+fit2/.hbuilderx/
+
+# 后端
+demo/target/
+demo/.idea/
+demo/uploads/
+demo/*.log

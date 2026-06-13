@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.HealthRecordMapper">
+
+    <insert id="insert" parameterType="com.example.demo.entity.HealthRecord" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO h_health_record (user_id, steps, sleep_hours, weight, calories_burned, record_date, created_at)
+        VALUES (#{userId}, #{steps}, #{sleepHours}, #{weight}, #{caloriesBurned}, #{recordDate}, #{createdAt})
+        ON DUPLICATE KEY UPDATE
+            steps = VALUES(steps),
+            sleep_hours = VALUES(sleep_hours),
+            weight = VALUES(weight),
+            calories_burned = VALUES(calories_burned),
+            created_at = VALUES(created_at)
+    </insert>
+
+    <update id="update" parameterType="com.example.demo.entity.HealthRecord">
+        UPDATE h_health_record
+        SET steps = #{steps},
+            sleep_hours = #{sleepHours},
+            weight = #{weight},
+            calories_burned = #{caloriesBurned}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.example.demo.entity.HealthRecord">
+        SELECT * FROM h_health_record WHERE id = #{id}
+    </select>
+
+    <select id="selectByUserIdAndDate" resultType="com.example.demo.entity.HealthRecord">
+        SELECT * FROM h_health_record
+        WHERE user_id = #{userId} AND record_date = #{recordDate}
+    </select>
+
+    <select id="selectByUserId" resultType="com.example.demo.entity.HealthRecord">
+        SELECT * FROM h_health_record
+        WHERE user_id = #{userId}
+        ORDER BY record_date DESC
+    </select>
+
+    <select id="selectByDateRange" resultType="com.example.demo.entity.HealthRecord">
+        SELECT * FROM h_health_record
+        WHERE user_id = #{userId}
+        AND record_date BETWEEN #{startDate} AND #{endDate}
+        ORDER BY record_date DESC
+    </select>
+</mapper>
