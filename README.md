@@ -53,8 +53,8 @@ LeapTrace/
 git clone https://github.com/buxangbaigei/LeapTrace.git
 2. 数据库配置
 sql
-CREATE DATABASE leaptrace;
--- 执行 database/schema.sql
+CREATE DATABASE health_ai_app;
+-- 执行 database/health_ai_app.sql
 3. 配置 AI API Key
 修改 demo/src/main/resources/application.yml
 
